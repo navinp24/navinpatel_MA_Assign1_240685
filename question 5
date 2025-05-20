@@ -1,0 +1,36 @@
+class Solution {
+public:
+    void rotate(vector<vector<int>>& arr) {
+        int n = arr.size();
+        int a = arr[0][0];
+        int b = arr[0][n-1];
+        int c = arr[n-1][0];
+        int d = arr[n-1][n-1];
+        // arr[n-1][0] = a;
+        // arr[0][n-1] = d;
+        // arr[0][0] =b;
+        // arr[n-1][n-1] = c;
+        
+        for(int i = 0; i<n ; i++){
+            for(int j= i+1; j<n ;j++){
+               int temp = arr[i][j];
+               arr[i][j] = arr[j][i];
+               arr[j][i] = temp;
+
+            }
+        }
+
+        for(int i = 0; i<n;i++){
+            int r = 0;
+            while(r<(n-1)){
+                int temp = arr[i][r];
+                arr[i][r] = arr[i][n-1];
+                arr[i][n-1] = temp;
+                r++;
+                int s = n-1;
+                s--;
+
+            }
+        }
+    }
+};
